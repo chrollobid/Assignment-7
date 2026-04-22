@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Jenkins",
+    "picture": "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    "email": "sarah.j@example.com",
+    "days_since_contact": 22,
+    "status": "overdue",
+    "tags": ["College", "Best Friend"],
+    "bio": "Met during Freshman year orientation. We usually grab coffee once a month to catch up on life.",
+    "goal": 14,
+    "next_due_date": "2026-04-10"
+  },
+  {
+    "id": 2,
+    "name": "David Chen",
+    "picture": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+    "email": "dchen.dev@techmail.com",
+    "days_since_contact": 3,
+    "status": "on-track",
+    "tags": ["Tech", "Networking"],
+    "bio": "Senior Frontend Developer who mentored me during my first React project. Very insightful guy.",
+    "goal": 30,
+    "next_due_date": "2026-05-18"
+  },
+  {
+    "id": 3,
+    "name": "Amara Okafor",
+    "picture": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce",
+    "email": "amara.design@studio.com",
+    "days_since_contact": 12,
+    "status": "almost due",
+    "tags": ["Creative", "Work"],
+    "bio": "Freelance UI Designer. We collaborated on a few landing pages. She has a great eye for typography.",
+    "goal": 14,
+    "next_due_date": "2026-04-23"
+  },
+  {
+    "id": 4,
+    "name": "Marcus Thorne",
+    "picture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+    "email": "m.thorne@gymlife.com",
+    "days_since_contact": 1,
+    "status": "on-track",
+    "tags": ["Gym", "Local"],
+    "bio": "Gym partner. We motivate each other to stay consistent with the morning workouts.",
+    "goal": 7,
+    "next_due_date": "2026-04-27"
+  },
+  {
+    "id": 5,
+    "name": "Elena Rodriguez",
+    "picture": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
+    "email": "elena.rod@univ.edu",
+    "days_since_contact": 45,
+    "status": "overdue",
+    "tags": ["University", "Old Friend"],
+    "bio": "Used to study together in the library every Tuesday. Haven't spoken since she moved to Spain.",
+    "goal": 30,
+    "next_due_date": "2026-03-15"
+  },
+  {
+    "id": 6,
+    "name": "Liam Wilson",
+    "picture": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
+    "email": "liam.wilson@gaming.net",
+    "days_since_contact": 6,
+    "status": "almost due",
+    "tags": ["Gaming", "Online"],
+    "bio": "Part of my Discord gaming group. We usually play strategy games on Friday nights.",
+    "goal": 7,
+    "next_due_date": "2026-04-22"
+  },
+  {
+    "id": 7,
+    "name": "Priya Sharma",
+    "picture": "https://images.unsplash.com/photo-1580489944761-15a19d654956",
+    "email": "priya.s@hospital.com",
+    "days_since_contact": 10,
+    "status": "on-track",
+    "tags": ["Family", "Cousin"],
+    "bio": "My cousin who works as a resident doctor. Always busy but tries to stay in touch.",
+    "goal": 21,
+    "next_due_date": "2026-05-02"
+  },
+  {
+    "id": 8,
+    "name": "Julian Vane",
+    "picture": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
+    "email": "julian.v@art.org",
+    "days_since_contact": 18,
+    "status": "overdue",
+    "tags": ["Photography", "Hobby"],
+    "bio": "Met at a local photography workshop. He takes incredible street portraits.",
+    "goal": 14,
+    "next_due_date": "2026-04-17"
+  }
+]
