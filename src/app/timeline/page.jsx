@@ -1,25 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { PhoneCall, MessageSquare, Video } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Phone, MessageSquare, Video, Package } from "lucide-react";
 
-const typeIcons = {
-  Call: <PhoneCall size={18} className="text-green-500" />,
-  Text: <MessageSquare size={18} className="text-blue-500" />,
-  Video: <Video size={18} className="text-purple-500" />,
+const iconMap = {
+  Call: <Phone size={18} className="text-slate-500" />,
+  Text: <MessageSquare size={18} className="text-slate-500" />,
+  Video: <Video size={18} className="text-slate-500" />,
+  Meetup: <Package size={18} className="text-slate-500" />,
 };
 
-const TimeLinePage = () => {
-  const [timeline, setTimeline] = useState([]);
-  const [active, setActive] = useState("All");
+const FILTERS = ["All", "Call", "Text", "Video"];
 
-useEffect(() => {
-  const data = JSON.parse(localStorage.getItem("timeline") || "[]");
-  setTimeline(data);
-}, []);
+export default function TimelinePage() {
+  const [entries, setEntries] = useState([]);
+  const [filter, setFilter] = useState("All");
 
-  const filtered =
-    active === "All" ? timeline : timeline.filter((e) => e.type === active);
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem("timeline") || "[]");
+    setEntries(stored);
+  }, []);
 
   const formatDate = (iso) =>
     new Date(iso).toLocaleDateString("en-US", {
@@ -28,46 +28,48 @@ useEffect(() => {
       year: "numeric",
     });
 
-  return (
-    <div className="min-h-screen bg-slate-50 p-8 w-6/12 mx-auto">
-      <h1 className="text-3xl font-bold text-slate-800 mb-6">Timeline</h1>
+  const filtered =
+    filter === "All" ? entries : entries.filter((e) => e.type === filter);
 
-      {/* Filter Dropdown */}
-      <div className="mb-6">
-        <select
-          value={active}
-          onChange={(e) => setActive(e.target.value)}
-          className="w-64 px-4 py-2.5 rounded-xl border border-dashed border-blue-300 bg-white text-slate-600 text-sm appearance-none cursor-pointer focus:outline-none"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "right 12px center",
-          }}
-        >
-          <option value="All">Filter timeline</option>
-          <option value="Call">Call</option>
-          <option value="Text">Text</option>
-          <option value="Video">Video</option>
-        </select>
+  return (
+    <div className="min-h-screen mx-auto w-6/12 bg-gray-50 p-8">
+      <h1 className="text-3xl font-bold mb-6">Timeline</h1>
+
+      {/* Filter Buttons */}
+      <div className="flex gap-2 mb-6">
+        {FILTERS.map((f) => (
+          <button
+            key={f}
+            onClick={() => setFilter(f)}
+            className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors ${
+              filter === f
+                ? "bg-slate-800 text-white border-slate-800"
+                : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
+            }`}
+          >
+            {f}
+          </button>
+        ))}
       </div>
 
-      {/* Timeline List */}
       {filtered.length === 0 ? (
-        <p className="text-slate-400 text-sm">
-          No {active === "All" ? "" : active} interactions logged yet.
+        <p className="text-slate-400">
+          {entries.length === 0
+            ? "No check-ins yet. Go log one!"
+            : `No entries for "${filter}".`}
         </p>
       ) : (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 max-w-2xl">
           {filtered.map((entry) => (
             <div
               key={entry.id}
-              className="bg-white border border-slate-200 rounded-xl px-5 py-4 flex items-center gap-4"
+              className="bg-white border border-slate-200 rounded-xl p-4 flex items-center gap-4"
             >
-              <div className="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
-                {typeIcons[entry.type] ?? "📌"}
+              <div className="w-9 h-9 bg-slate-100 rounded-full flex items-center justify-center shrink-0">
+                {iconMap[entry.type] ?? iconMap.Meetup}
               </div>
               <div>
-                <p className="text-sm font-semibold text-slate-700">
+                <p className="text-sm font-semibold text-slate-800">
                   {entry.type}{" "}
                   <span className="font-normal text-slate-500">
                     with {entry.friendName}
@@ -81,6 +83,4 @@ useEffect(() => {
       )}
     </div>
   );
-};
-
-export default TimeLinePage;
+}

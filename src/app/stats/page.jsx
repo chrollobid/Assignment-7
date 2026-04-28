@@ -16,7 +16,7 @@ const StatsPage = () => {
   const data = JSON.parse(localStorage.getItem("timeline") || "[]");
   setTimeline(data);
 }, []);
-  // Count by type
+ 
   const counts = timeline.reduce((acc, entry) => {
     acc[entry.type] = (acc[entry.type] || 0) + 1;
     return acc;
@@ -31,12 +31,12 @@ const StatsPage = () => {
     <div className="min-h-screen bg-slate-50 p-8">
       <div className="max-w-4xl mx-auto">
 
-        {/* Title */}
+    
         <div className="border border-dashed border-blue-300 rounded-2xl p-6 mb-6">
           <h1 className="text-4xl font-bold text-slate-800">Friendship Analytics</h1>
         </div>
 
-        {/* Donut Chart */}
+      
         <div className="border border-dashed border-blue-300 rounded-2xl p-6 bg-white">
           <p className="text-slate-600 font-medium mb-4">By Interaction Type</p>
 

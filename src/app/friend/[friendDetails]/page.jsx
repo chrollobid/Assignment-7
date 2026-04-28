@@ -162,9 +162,9 @@ console.log(id)
               </div>
 
              
-           <div className="bg-white rounded-xl border border-slate-200 p-5">
+<div className="bg-white rounded-xl border border-slate-200 p-5">
   <h3 className="text-sm font-semibold text-slate-700 mb-3">Quick Check-In</h3>
-  <CheckInButtons friendName={name} friendId={id} />
+  <CheckInButtons friendId={id} friendName={name} />
 </div>
 
             </div>
