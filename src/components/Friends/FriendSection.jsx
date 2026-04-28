@@ -1,9 +1,11 @@
 
-import FriendCard from '../FriendCard/FriendCard';
+import FriendCard from "../FriendCard/FriendCard";
+
 
 const FriendSection = async() => {
-   const data = await fetch('http://localhost:3000/data.json')
-    const friends =await data.json();
+ const data = await fetch('http://localhost:3000/data.json');
+const json = await data.json();
+const friends = json.friends;
     const totalFriends = friends.length;
   const onTrackCount = friends.filter(f => f.status === "on-track").length;
   const needAttentionCount = friends.filter(f => f.status === "overdue").length;
@@ -37,11 +39,11 @@ const almostDueCount = friends.filter(f => f.status === "almost due").length;
   </div>
 
 </div>
-<div className="w-7/12 mx-auto">
+<div className="w-11/12 mx-auto">
     <h2 className='font-bold text-3xl mt-4'>Your Friends</h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6 ">
         {
-            friends.map((friend) => <FriendCard key={friend.id} friend={friend} ></FriendCard> )
+            friends.map((friend) => <FriendCard key={friend.id} friend={friend} />  )
         }
     </div>
 </div>

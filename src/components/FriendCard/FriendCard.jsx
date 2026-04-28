@@ -1,9 +1,13 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 const FriendCard = ({friend}) => {
-   const { name, days_since_contact, status, picture, tags, bio } = friend;
+   const {id, name, days_since_contact, status, picture, tags, bio } = friend;
     return (
+     
+      
+      
         <div className="card bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
     
       <figure className="px-4 pt-4">
@@ -34,7 +38,7 @@ const FriendCard = ({friend}) => {
             </div>
           ))}
         </div>
-          <div className={`px-4 py-1.5 mx-auto rounded-full w-6/12 mt-2 text-xs font-medium ${
+          <div className={`px-4 py-1.5 mx-auto rounded-full w-6/12 mt-2 text-center text-xs font-medium ${
         status === "on-track" 
           ? "bg-[#1A4332] text-white" 
           : status === "overdue" 
@@ -43,8 +47,14 @@ const FriendCard = ({friend}) => {
       }`}>
             {status}
           </div>
+          <div className="mx-auto">
+             <Link href={`/friend/${id}`}>
+             <button className='btn btn-ghost'>Show Details</button>
+  </Link>
+          </div>
       </div>
     </div>
+    
     );
 };
 
