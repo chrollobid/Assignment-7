@@ -17,7 +17,7 @@ const PageDetails = async ({ params }) => {
     
     const { friendDetails } = await params;
     
-    const res = await fetch('https://assignment-7-git-main-chrollobids-projects.vercel.app/data.json',    { cache: "no-store",
+    const res = await fetch('https://assignment-7-nine-ruby.vercel.app/data.json',    { cache: "no-store",
   });
 const json = await res.json();
 const friends = json.friends; 
