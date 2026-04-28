@@ -3,7 +3,7 @@ import FriendCard from "../FriendCard/FriendCard";
 
 
 const FriendSection = async() => {
- const data = await fetch('http://localhost:3000/data.json');
+ const data = await fetch('/data.json');
 const json = await data.json();
 const friends = json.friends;
     const totalFriends = friends.length;

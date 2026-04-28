@@ -17,7 +17,7 @@ const PageDetails = async ({ params }) => {
     
     const { friendDetails } = await params;
     
-    const res = await fetch("http://localhost:3000/data.json");
+    const res = await fetch("/data.json");
 const json = await res.json();
 const friends = json.friends; 
 const friend = friends.find((f) => f.id === Number(friendDetails));
