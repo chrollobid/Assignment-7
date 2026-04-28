@@ -8,11 +8,15 @@ const CheckInButtons = ({ friendName, friendId }) => {
   const router = useRouter();
 
   const handleCheckIn = async (type) => {
-    await fetch("/api/timeline", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ type, friendName, friendId }),
-    });
+   const existing = JSON.parse(localStorage.getItem("timeline") || "[]");
+const newEntry = {
+  id: Date.now(),
+  type,
+  friendName,
+  friendId,
+  date: new Date().toISOString(),
+};
+localStorage.setItem("timeline", JSON.stringify([newEntry, ...existing]));
 
     toast.success(`${type} logged with ${friendName}!`, {
       duration: 2000,

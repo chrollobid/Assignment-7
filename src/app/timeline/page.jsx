@@ -13,11 +13,10 @@ const TimeLinePage = () => {
   const [timeline, setTimeline] = useState([]);
   const [active, setActive] = useState("All");
 
-  useEffect(() => {
-    fetch("/api/timeline")
-      .then((res) => res.json())
-      .then((data) => setTimeline(data));
-  }, []);
+useEffect(() => {
+  const data = JSON.parse(localStorage.getItem("timeline") || "[]");
+  setTimeline(data);
+}, []);
 
   const filtered =
     active === "All" ? timeline : timeline.filter((e) => e.type === active);
