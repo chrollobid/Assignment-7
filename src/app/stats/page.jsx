@@ -12,12 +12,10 @@ const COLORS = {
 const StatsPage = () => {
   const [timeline, setTimeline] = useState([]);
 
-  useEffect(() => {
-    fetch("/api/timeline")
-      .then((res) => res.json())
-      .then((data) => setTimeline(data));
-  }, []);
-
+ useEffect(() => {
+  const data = JSON.parse(localStorage.getItem("timeline") || "[]");
+  setTimeline(data);
+}, []);
   // Count by type
   const counts = timeline.reduce((acc, entry) => {
     acc[entry.type] = (acc[entry.type] || 0) + 1;
