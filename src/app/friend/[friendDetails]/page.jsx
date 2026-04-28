@@ -17,7 +17,8 @@ const PageDetails = async ({ params }) => {
     
     const { friendDetails } = await params;
     
-    const res = await fetch("/data.json");
+    const res = await fetch('https://assignment-7-git-main-chrollobids-projects.vercel.app/data.json',    { cache: "no-store",
+  });
 const json = await res.json();
 const friends = json.friends; 
 const friend = friends.find((f) => f.id === Number(friendDetails));
